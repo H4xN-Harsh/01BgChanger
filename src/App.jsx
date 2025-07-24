@@ -1,10 +1,16 @@
-
-import React from 'react'
+import React, { useState } from 'react'
 
 function App() {
+  const colors = ["red","green","yellow"];
+  const [color,setColor] = useState("bg-blue-600");
+  const bgChanger = ()=>{
+    const rand_idx = Math.floor(Math.random()*colors.length);
+    setColor(colors[rand_idx]);
+  };
   return (
-    <div className='h-screen w-full border-2 border-violet-600 bg-gray-600'>
-      <h1 className='text-center text-7xl text-blue-500 mt-2'>Background Color Changer </h1>
+    <div className={`w-full h-screen bg-${color}-600`}>
+      <h1>background Color changer </h1>
+      <button onClick={bgChanger}>change color</button>
     </div>
   )
 }
